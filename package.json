@@ -1,0 +1,19 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js\\index.js",
+  "scripts": {
+    "start": "node js\\index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giaminh2801/personal_website.git"
+  },
+  "author": "Minh Le",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giaminh2801/personal_website/issues"
+  },
+  "homepage": "https://github.com/giaminh2801/personal_website#readme"
+}
