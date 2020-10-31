@@ -11,12 +11,10 @@ body{
     color: white;
 }
 
-.fullpage{
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    width: 100%;
-    height: 100%;
+::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .container{
@@ -33,11 +31,6 @@ a{
     color: white;
 }
 
-::-webkit-scrollbar {
-    height: 0px;
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-}
 
 /*Header*/
 .current{
@@ -46,13 +39,11 @@ a{
 
 #main-header{
     position: relative;
+    width: 100%;
     height: 100vh;
-    overflow: hidden;   
     background-image: url(../img/cover.jpg);
     background-attachment: fixed;
     background-size: cover;
-    height: 100vh;
-    scroll-snap-align: center;
 }
 
 .overlay{
@@ -136,15 +127,15 @@ a{
 
 /*Sections*/
 section{
-    position: relative;
+    width: 100%;
     height: 100vh;
-    scroll-snap-align: center;
 }
 
 /*About section*/
 #about{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    scroll-snap-align: center;
 }
 
 .section-cover{
@@ -156,6 +147,9 @@ section{
 }
 
 .section-content{
-    background-color: #39393f;
+    background-color:#f3f3f3;
+    color: black;
     overflow: scroll;
+    scroll-behavior: smooth;
+    overscroll-behavior: contain;
 }
