@@ -1,16 +1,18 @@
+/*Scroll fit page*/
+
 const panels = document.querySelectorAll("section");
 let y_coords = [];
-let epsilon = 100;
+let epsilon = Math.floor(window.innerHeight / 5);
 let current = -1;
+let pageYOffset = window.pageYOffset;
 
-for (let index = 0; index < panels.length; index++) {
-    y_coords[index] = panels[index].offsetTop;
-}
 
 function find_section(){
-    let pageYOffset = window.pageYOffset;
     let result = -1;
-
+    
+    for (let index = 0; index < panels.length; index++) {
+        y_coords[index] = panels[index].offsetTop;
+    }
     for (let index = 0; index < y_coords.length; index++) {
         if (Math.abs(window.pageYOffset - y_coords[index]) < epsilon){
             result += index + 1;
@@ -34,6 +36,3 @@ window.addEventListener('scroll', (e) => {
         });
     }
 })
-
-console.log(panels);
-console.log(y_coords);

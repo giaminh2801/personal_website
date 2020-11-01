@@ -18,7 +18,7 @@ body{
 }
 
 .container{
-    padding: 2rem;
+    padding: 1rem;
 }
 
 li{
@@ -31,6 +31,9 @@ a{
     color: white;
 }
 
+p{
+    margin-bottom: 1rem;
+}
 
 /*Header*/
 .current{
@@ -95,6 +98,37 @@ a{
     animation: nav_hover_text .3s ease forwards;
 }
 
+#main-header svg path:nth-child(1){
+    stroke-dasharray: 608px;
+    stroke-dashoffset: 608px;
+    animation: line-anim 2s ease forwards;
+}
+#main-header svg path:nth-child(2){
+    stroke-dasharray: 225px;
+    stroke-dashoffset: 225px;
+    animation: line-anim 2s ease forwards 0.3s;
+}
+#main-header svg path:nth-child(3){
+    stroke-dasharray: 600px;
+    stroke-dashoffset: 600px;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+#main-header svg path:nth-child(4){
+    stroke-dasharray: 534px;
+    stroke-dashoffset: 534px;
+    animation: line-anim 2s ease forwards 0.9s;
+}
+#main-header svg path:nth-child(5){
+    stroke-dasharray: 314px;
+    stroke-dashoffset: 314px;
+    animation: line-anim 2s ease forwards 1.2s;
+}
+#main-header svg path:nth-child(6){
+    stroke-dasharray: 474px;
+    stroke-dashoffset: 474px;
+    animation: line-anim 2s ease forwards 1.5s;
+}
+
 .lg-text-center{
     display: flex;
     flex-direction: column;
@@ -103,10 +137,13 @@ a{
     row-gap: 2rem;
 }
 
-.lg-text-center svg{
+section svg{
     stroke-dasharray: 1000px;
     stroke-dashoffset: 1000px;
-    animation: line-anim 3.5s ease forwards;
+}
+
+.text-anim{
+    animation: line-anim 4s ease forwards;
 }
 
 @keyframes line-anim{
@@ -116,40 +153,122 @@ a{
 }
 
 .lg-head{
-    color: white;
+    margin: 2rem 0;
     font-size: 3rem;
 }
 
 .sm-head{
-    color: white;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
 }
 
 /*Sections*/
 section{
+    position: relative;
     width: 100%;
     height: 100vh;
 }
 
-/*About section*/
-#about{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    scroll-snap-align: center;
+.section-btn{
+    border: none;
+    padding: 1rem 2rem;
+    background-color: white;
+    color: #C3073F;
+    transition: all 0.3s ease;
+}
+
+.section-btn:hover{
+    background-color: #8f0830;
+    color: white;
+}
+
+.section-btn:focus{
+    border:none;
+    outline: none;
 }
 
 .section-cover{
-    background-color: #950740;
-    padding: 1rem;
+    position: absolute;
     display: grid;
-    flex-direction: column;
+    grid-template-rows: repeat(3, 1fr);
     justify-items: center;
+    align-items: start;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background-color: #C3073F;
+    color: white;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.section-anim-shrink{
+    animation: section-anim-shrink 1s ease forwards; 
+}
+
+.section-anim-stretch{
+    animation: section-anim-stretch 1s ease forwards;
+}
+
+@keyframes section-anim-stretch{
+    0%{
+        width: 30%;
+    }
+    100%{
+        width: 100%;
+    }
+}
+
+@keyframes section-anim-shrink{
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 30%;
+    }
+}
+
+.section-content-anim{
+    animation: section-content-show 1s ease forwards;
+}
+
+@keyframes section-content-show{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 .section-content{
-    background-color:#f3f3f3;
-    color: black;
-    overflow: scroll;
-    scroll-behavior: smooth;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 1rem;
+    opacity: 0;
+    height: 100%;
+    width: 70%;
+    box-sizing: border-box;
+    left: 30%;
+    overflow-y: scroll;
     overscroll-behavior: contain;
+    background-color: white;
+    color: black;
+    line-height: 1.5rem;
+}
+
+#about .section-content{
+    padding: 3rem;
+}
+
+#personal{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    justify-items: center;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+#personal img{
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
 }
